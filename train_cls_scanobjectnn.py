@@ -112,7 +112,6 @@ def main(args):
     num_class = 15
     MODEL = importlib.import_module(args.model)
     shutil.copy('./models/%s.py' % args.model, str(experiment_dir))
-    shutil.copy('./models/pointnet_util.py', str(experiment_dir))
 
     classifier = MODEL.get_model(num_class,normal_channel=args.normal,N=1024).cuda()
     criterion = MODEL.get_loss().cuda()
